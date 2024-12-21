@@ -13,7 +13,6 @@ function Exiftool(...)
         :args({
             "-q",
             "-q",
-            "-S",
             "-Title",
             "-SortName",
             "-TitleSort",
@@ -111,7 +110,7 @@ function M:peek(job)
                 local ti = ui.Span(m_title):bold()
                 local ta = ui.Span(m_tag)
                 table.insert(metadata, ui.Line({ ti, ta }))
-                table.insert(metadata, ui.Line({}))
+                -- table.insert(metadata, ui.Line({}))
             end
         end
     until i >= job.skip + limit
@@ -133,9 +132,16 @@ function M:peek(job)
     local cover_width = job.area.w / 2
     local cover_height = (job.area.h / 4)
 
+    -- local bottom_right = ui.Rect({
+    --     x = job.area.right - cover_width,
+    --     y = job.area.bottom - cover_height,
+    --     w = cover_width,
+    --     h = cover_height,
+    -- })
+
     local bottom_right = ui.Rect({
-        x = job.area.right - cover_width,
-        y = job.area.bottom - cover_height,
+        x = self.area.left,
+        y = self.area.bottom - cover_height,
         w = cover_width,
         h = cover_height,
     })
