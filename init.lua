@@ -140,8 +140,8 @@ function M:peek(job)
     -- })
 
     local bottom_right = ui.Rect({
-        x = self.area.left,
-        y = self.area.bottom - cover_height,
+        x = job.area.left,
+        y = job.area.bottom - cover_height,
         w = cover_width,
         h = cover_height,
     })
