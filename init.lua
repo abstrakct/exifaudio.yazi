@@ -78,7 +78,7 @@ function M:peek(job)
             local error = ui.Line({ ui.Span("Make sure exiftool is installed and in your PATH") })
             -- TODO)) Remove legacy method when v0.4 gets released
             local function display_error_legacy()
-                local p = ui.Paragraph(job.area, { error }):wrap(ui.Paragraph.WRAP)
+                local p = ui.Text(job.area, { error }):wrap(ui.Text.WRAP)
                 ya.preview_widgets(job, { p })
             end
             local function display_error()
@@ -117,7 +117,7 @@ function M:peek(job)
 
     -- TODO)) Remove legacy method when v0.4 gets released
     local function display_metadata_legacy()
-        local p = ui.Paragraph(job.area, metadata):wrap(ui.Paragraph.WRAP)
+        local p = ui.Text(job.area, metadata):wrap(ui.Text.WRAP)
         ya.preview_widgets(job, { p })
     end
     local function display_metadata()
